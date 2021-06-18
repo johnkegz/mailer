@@ -11,21 +11,20 @@ export class AppService {
     var data = {
       from: 'John <johnkal24@gmail.com>',
       to: 'johnkal24@gmail.com',
-      subject: 'Hello world now',
+      subject: 'Testing mail gun',
       text: 'Testing some Mailgun awesomeness!'
     };
 
     mailgun.messages().send(data, function (error, body) {
       if(error){
-        console.log("error +++>", error)
+        console.log(error)
       }
-      console.log("res +++>", body);
+      console.log(body);
     });
     return 'Hello World!';
   }
 
   recieveWebHook(mailGunData: any){
-    // console.log("mailGunData ++++>", mailGunData['event-data'].message.headers['message-id']);
     if(mailGunData['event-data'].message.headers['message-id'].includes('mailgun.org')){
       // Set region
       AWS.config.update({region: 'us-east-2'});
