@@ -1,14 +1,6 @@
-# package directories
-node_modules
-jspm_packages
-
-# Serverless directories
-.serverless
-
 # compiled output
 /dist
 /node_modules
-dist
 
 # Logs
 logs

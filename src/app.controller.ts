@@ -6,12 +6,12 @@ export class AppController {
   constructor(private readonly appService: AppService) { }
 
   @Get()
-  sendMail(): string {
-    return this.appService.sendMail();
+  async sendMail(): Promise<any> {
+    return await this.appService.sendEmail()
   }
 
-  @Post("mailgun-webhook")
-  recieveWebHook(@Body() mailGunData: any) {
-    return this.appService.recieveWebHook(mailGunData);
+  @Get('mailgun-webhook')
+  recieveWebHook() {
+    return this.appService.recieveWebHook();
   }
 }
